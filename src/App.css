@@ -180,6 +180,11 @@
     align-items: center;
     float: left;
     margin-left: 1%;
+
+    position: fixed;
+    top: 20%;
+    left: 1%;
+    z-index: 9999;
   }
   
   .taskListComponent h2 {
@@ -206,19 +211,46 @@
     margin-bottom: 25px; */
     padding: 5px 10px 5px 10px;
     border-radius: 10px;
+    /* background-color: #5E60CE; */
     /* text-align: center;     */
   }
-  .taskListComponent li :hover {
+  .taskListComponent button:hover {
     /* margin-bottom: 10px; */
-    background-color: #4647A1;
+    background-color: #3c3e8b;
     color: #FFFFFF;
     border-radius: 10px;
   }
 
   .box {
-    width: 50%;
-    /* margin-left: 12%; */
-    margin-right: 12%;
+    position: fixed;
+    top: 20%;
+    right: 1%;
+    z-index: 9999;
+
+    width: 30%;
+    margin-left: 1%;
+    margin-right: 1%;
     float: right;
   }
   
+  #taskDesc {
+    float: left;
+    width: 37%;
+
+    position: fixed;
+    top: 20%;
+    left: 26%;
+    z-index: 9999;
+  }
+
+  #taskEdit {
+    float: left;
+    width: 37%;
+    height: 48%;
+
+    position: fixed;
+    top: 20%;
+    left: 26%;
+    z-index: 9999;
+    align-items: center;
+  }

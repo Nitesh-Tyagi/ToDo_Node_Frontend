@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
+import TaskDescriptionComponent from "./TaskDescriptionComponent";
+import TaskListItem from "./TaskListItem";
 
 function TaskListComponent(props) {
   const [tasks, setTasks] = useState([]);
+  const [selectedTask, setSelectedTask] = useState(null);
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -10,9 +13,9 @@ function TaskListComponent(props) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`
+          Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ "userID": props.userID })
+        body: JSON.stringify({ userID: props.userID }),
       });
       const data = await response.json();
       setTasks(data);
@@ -20,18 +23,33 @@ function TaskListComponent(props) {
     fetchTasks();
   }, [props.userID]);
 
+  const handleTaskClick = (taskId) => {
+    setSelectedTask(taskId);
+    if (props.onTaskClick) {
+      props.onTaskClick(taskId);
+    }
+  };
+
   return (
     <div>
       <h2>Task List</h2>
-      {/* {props.userID && <p>Your userID: {props.userID}</p>} */}
       <ul>
         {tasks.map((task) => (
-          <li key={task.Task_title}>
-            <div>&nbsp;&nbsp;&nbsp;&nbsp;{task.Task_title}&nbsp;&nbsp;&nbsp;&nbsp;
-            {new Date(task.Create_date).toLocaleDateString()}</div>
-          </li>
+          <TaskListItem
+            key={task.ID}
+            task={task}
+            onTaskClick={() => handleTaskClick(task.ID)}
+          />
         ))}
       </ul>
+      {/* {selectedTask 
+      && (
+        <TaskDescriptionComponent
+          userID={props.userID}
+          taskID={selectedTask}
+        />
+      )
+      } */}
     </div>
   );
 }
