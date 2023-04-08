@@ -25,7 +25,7 @@ function SignUpForm() {
       if (id > 0) {
         setJwt(id);
         // Redirect to home page
-        navigate('/home', { state: { userID: id } });
+        navigate('/home', { state: { userID: response.data.ID , username: username} });
       } else {
         setError('Username or email already exists');
       }
@@ -38,12 +38,13 @@ function SignUpForm() {
   return (
     <div>
         <nav>
-        <ul>
-          <li><Link to='/'>Login</Link></li>
+        <ul className='Navv'>
+          <li className='log'><Link to='/'>Login</Link></li>
         </ul>
       </nav>
-      <h2>Sign up</h2>
       <form onSubmit={handleSubmit} className='formDiv'>
+        <h2>Sign up</h2>
+        <br></br>
         <div>
           <label>
             Username :&nbsp;&nbsp;

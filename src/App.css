@@ -17,8 +17,15 @@
   
   /* Headings */
   h1 {
-    font-size: 24px;
+    font-size: 40px;
+    color: #5E60CE;
+    text-align: center;
+    margin-top: 20px; /* adjust this value to change the distance from the top */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* add a shadow effect */
+    letter-spacing: 2px; /* increase the space between letters */
+    font-weight: bold; /* make the text bolder */
   }
+  
   
   h2 {
     font-size: 20px;
@@ -64,12 +71,8 @@
   
   /* Links */
   a {
-    color: var(--secondary-color);
+    color: white;
     text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
   }
   
   .formDiv {
@@ -128,5 +131,70 @@
     margin-top: 20px;
   }
   
-
+  .log {
+    display: inline-block;
+    background-color: #5E60CE;
+    color: white;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
   
+  .log:hover {
+    background-color: #4647A1;
+  }
+  
+  .Navv {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+  }
+  
+  .taskListComponent {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    /* padding: 20px; */
+    max-width: 25%;
+    /* right: 5px; */
+    /* margin: 0 auto; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    align-items: center;
+  }
+  
+  .taskListComponent h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    background-color: #4647A1;
+    border-radius: 10px 10px 0px 0px;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .taskListComponent ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .taskListComponent li {
+    /* margin-left: 10px; */
+    /* margin-right: 10px; */
+    /* margin-top: 25px;
+    margin-bottom: 25px; */
+    padding: 5px 10px 5px 10px;
+    border-radius: 10px;
+    /* text-align: center;     */
+  }
+  .taskListComponent li :hover {
+    /* margin-bottom: 10px; */
+    background-color: #4647A1;
+    color: #FFFFFF;
+    border-radius: 10px;
+  }

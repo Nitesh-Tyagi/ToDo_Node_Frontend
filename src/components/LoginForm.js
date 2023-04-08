@@ -21,9 +21,10 @@ function LoginForm() {
       const { ID } = response.data;
       if (ID > 0) {
         setJwt(ID);
+        setJwt(username);
         // Redirect to home page
         // window.location.href = '/';
-        navigate('/home', { state: { userID: response.data.ID } });
+        navigate('/home', { state: { userID: response.data.ID , username: username} });
       } else {
         setError('Invalid username or password');
       }
@@ -37,12 +38,13 @@ function LoginForm() {
   return (
     <div>
       <nav>
-        <ul>
-          <li><Link to='/signup'>Sign Up</Link></li>
+        <ul className='Navv'>
+          <li className='log'><Link to='/signup'>Sign Up</Link></li>
         </ul>
       </nav>
-      <h2>Login</h2>
       <form onSubmit={handleSubmit} className='formDiv'>
+        <h2>Login</h2>
+        <br></br>
         <div>
           <label>
             Username :&nbsp;&nbsp;
